@@ -1,6 +1,6 @@
 while :
 do
-	php /home/max/repos/ticket-twit/fetchTweets.php
+	php fetchTweets.php
 	sleep 30
 done
 
