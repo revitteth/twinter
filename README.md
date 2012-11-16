@@ -10,8 +10,11 @@ The "main focus" of the project is the C++ code to print text files and cut.
 The sidetracked part of this project is a basic PHP script using twitter to print out the hashtags...
 
 ##Raspberry PI
-uses PHP-CLI, GCC, GIT, BOOST libraries
+required: PHP-CLI, GCC, GIT, BOOST libraries & receipt printer (we're using NCR 7167).
+
 C recompiled for ARM and running on Raspberry Pi
+
+
 
 by
 
