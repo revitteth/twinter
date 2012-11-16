@@ -11,8 +11,8 @@ foreach($results as $result){
     
     if(!file_exists($file)){
         $outFile = fopen($file, 'w');
-        fwrite($outFile, 'From: @'.$result->from_user.'\n'
-                .'Time: '.$result->created_at.'\n'
+        fwrite($outFile, 'From: @'.$result->from_user."\n"
+                .'Time: '.$result->created_at."\n"
                 .'Message: '
                 .$result->text
                 );
