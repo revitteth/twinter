@@ -15,6 +15,7 @@ foreach($results as $result){
                 .'Time: '.$result->created_at."\n"
                 .'Message: '
                 .$result->text
+                ."\n\n\n"
                 );
         fclose($outFile);
         exec('./async '. $file);
