@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 
 	try {
         BufferedAsyncSerial serial("/dev/ttyUSB0",9600);
-		if(argc >= 1) {
+		if(argc > 1) {
 			ifstream inputfile (argv[1]);
 			if (inputfile.is_open())
 			{
@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
 			}
 	
 			serial.writeString("\n\n\n\n\n");
-			if(argc = 3) {
+			if(argc > 2) {
 				if(strcmp(argv[2], "cut") == 0){
 					serial.writeString("\x1b\x69");
 				} else {
