@@ -57,7 +57,7 @@ foreach($reverseResults as $result){
             $lines = explode("\n", $message);
             $message = '';
             foreach($lines as $line){
-                $message = $message . str_pad(trim($line), CHAR_WIDTH_80, ' ', STR_PAD_LEFT)."\n";
+                $message = $message . str_pad(($line), CHAR_WIDTH_80, ' ', STR_PAD_LEFT)."\n";
             }
         }
         //Tidy up characters and encoding for printer
