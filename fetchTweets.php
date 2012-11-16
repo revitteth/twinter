@@ -1,12 +1,12 @@
 <?php
 /* Configurable Definitions */
 define('HASHTAG','hpmprinter'); //def 32
-define('NARROW', false); // true/false
+define('NARROW', true); // true/false
 define('NARROW_RIGHT_ALIGN', true); // applies if using narrow
 
 
 /* Definitions */
-define('CHAR_WIDTH_58',32); //def 32
+define('CHAR_WIDTH_58',28); //def 32
 define('CHAR_WIDTH_80',43); //def 43
 
 if (NARROW){
@@ -40,7 +40,7 @@ foreach($reverseResults as $result){
         $formattedTime = trim($timeTemp[0]);
         
         if (NARROW){
-            $formattedTime_t = explode(',' . $formattedTime);
+            $formattedTime_t = explode(',' , $formattedTime);
             $formattedTime = $formattedTime_t[1];
             
         }
