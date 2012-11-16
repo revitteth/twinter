@@ -1,6 +1,8 @@
 #HPM PRINTER
 >Twitter connected receipt printer for a given hashtag (we are using #hpmprinter)
 
+[https://github.com/maxrev17/twinter/wiki](https://github.com/maxrev17/twinter/wiki "Live Status")
+
 ![](https://pbs.twimg.com/media/A719nP1CUAABQgr.jpg:large)
 
 For our Human Centered Robotics course at university we are making a robot that will print unique leaflets/tickets after "making friends" with someone. So we bought a receipt printer for its rapid printing and cutting capabilities.
