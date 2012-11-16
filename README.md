@@ -1,5 +1,5 @@
 #HPM PRINTER
->Twitter connected receipt printer for a given hashtag (we used #hpmprinter)
+>Twitter connected receipt printer for a given hashtag (we are using #hpmprinter)
 
 ![](https://pbs.twimg.com/media/A719nP1CUAABQgr.jpg:large)
 
@@ -9,4 +9,12 @@ The "main focus" of the project is the C++ code to print text files and cut.
 
 The sidetracked part of this project is a basic PHP script using twitter to print out the hashtags...
 
+##Raspberry PI
+uses PHP-CLI, GCC, GIT, BOOST libraries
 C recompiled for ARM and running on Raspberry Pi
+
+by
+
+[maxrev17](https://github.com/maxrev17/)
+
+[webbo89](https://github.com/webbo89/)
