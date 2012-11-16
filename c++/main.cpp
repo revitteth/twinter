@@ -1,5 +1,5 @@
-
 #include <iostream>
+#include <fstream>
 #include <boost/thread.hpp>
 
 #include "BufferedAsyncSerial.h"
@@ -9,21 +9,35 @@ using namespace boost;
 
 int main(int argc, char* argv[])
 {
-    try {
-        BufferedAsyncSerial serial("/dev/ttyUSB0",115200);
+	string line;
 
-        //Return immediately. String is written *after* the function returns,
-        //in a separate thread.
-        serial.writeString("Hello world\r\n");
+    try {
+        BufferedAsyncSerial serial("/dev/ttyUSB0",9600);
+
+		ifstream inputfile (argv[1]);
+		if (inputfile.is_open())
+		{
+			while ( inputfile.good() )
+			{
+				getline (inputfile,line);
+				serial.writeString(line += '\n');
+			}
+			inputfile.close();
+		}
+	
+		serial.writeString("\n\n\n\n\n");
+		if(strcmp(argv[2], "cut") == 0){
+			serial.writeString("\x1b\x69");
+		}
 
         //Simulate doing something else while the serial device replies.
         //When the serial device replies, the second thread stores the received
         //data in a buffer.
-        this_thread::sleep(posix_time::seconds(2));
+        //this_thread::sleep(posix_time::seconds(2));
 
         //Always returns immediately. If the terminator \r\n has not yet
         //arrived, returns an empty string.
-        cout<<serial.readStringUntil("\r\n")<<endl;
+        //cout<<serial.readStringUntil("\r\n")<<endl;
 
         serial.close();
   
