@@ -25,14 +25,22 @@ int main(int argc, char* argv[])
 				inputfile.close();
 			}
 	
-			serial.writeString("\n\n\n\n\n");
 			if(argc > 2) {
-				if(strcmp(argv[2], "cut") == 0){
-					serial.writeString("\x1b\x69");
-				} else {
-					// do nothing	
+				for(int i = 0; i < atoi(argv[2]); i++){
+					serial.writeString("\n");
 				}
 			}
+			if(argc > 3) {
+                                if(strcmp(argv[3], "cut") == 0){
+					if(atoi(argv[2]) < 4){
+						serial.writeString("\n\n\n\n");
+					}
+                                        serial.writeString("\x1b\x69");
+                                } else {
+                                        // do nothing   
+                                }
+                        }
+
 		}
 
         //Simulate doing something else while the serial device replies.

@@ -33,10 +33,10 @@ foreach($reverseResults as $result){
         
         $message = wordwrap($message, CHAR_WIDTH);
         
-        echo ($message);
+        echo ($message."\n");
         fwrite($outFile, $message);
         fclose($outFile);
-        exec('./async '. $file);
+        exec('./async '. $file . ' 2');
     }
 }
 
