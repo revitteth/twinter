@@ -40,6 +40,11 @@ int main(int argc, char* argv[])
                                         // do nothing   
                                 }
                         }
+			if(argc > 4) {
+			
+			} else {
+					serial.writeString("\x1b\x07"); //BEEP!
+			}
 
 		}
 
