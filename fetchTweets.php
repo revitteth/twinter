@@ -7,14 +7,17 @@ $results = $tweetArray->results;
 
 foreach($results as $result){
     $id = $result->id_str;
-    if(!file_exists($id.'.txt')){
-        $outFile = fopen($id.'.txt', 'w');
+    $file = 'textfiles/'.$id.'.txt';
+    
+    if(!file_exists($file)){
+        $outFile = fopen($file, 'w');
         fwrite($outFile, 'From: @'.$result->from_user.'\n'
                 .'Time: '.$result->created_at.'\n'
                 .'Message: '
                 .$result->text
                 );
         fclose($outFile);
+        exec('./async '. $file);
     }
 }
 
