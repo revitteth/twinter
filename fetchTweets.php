@@ -25,11 +25,11 @@ foreach($reverseResults as $result){
         $timeTemp = explode('+',$result->created_at);
         $formattedTime = trim($timeTemp[0]);
         
-        $message =  'From: @'.$result->from_user."\n"
-                    .'Time: '.$formattedTime."\n"
+        $message =  str_pad($formattedTime, CHAR_WIDTH, '*', STR_PAD_BOTH)."\n"
+		    .'From: @'.$result->from_user."\n"
                     .'Message: '
-                    .trim($result->text)
-                    ."\n\n\n";
+                    .trim($result->text)."\n"
+                    .str_pad("", CHAR_WIDTH, '*');
         
         $message = wordwrap($message, CHAR_WIDTH);
         
