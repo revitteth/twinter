@@ -11,23 +11,28 @@ int main(int argc, char* argv[])
 {
 	string line;
 
-    try {
+	try {
         BufferedAsyncSerial serial("/dev/ttyUSB0",9600);
-
-		ifstream inputfile (argv[1]);
-		if (inputfile.is_open())
-		{
-			while ( inputfile.good() )
+		if(argc >= 1) {
+			ifstream inputfile (argv[1]);
+			if (inputfile.is_open())
 			{
-				getline (inputfile,line);
-				serial.writeString(line += '\n');
+				while ( inputfile.good() )
+				{
+					getline (inputfile,line);
+					serial.writeString(line += '\n');
+				}
+				inputfile.close();
 			}
-			inputfile.close();
-		}
 	
-		serial.writeString("\n\n\n\n\n");
-		if(strcmp(argv[2], "cut") == 0){
-			serial.writeString("\x1b\x69");
+			serial.writeString("\n\n\n\n\n");
+			if(argc = 3) {
+				if(strcmp(argv[2], "cut") == 0){
+					serial.writeString("\x1b\x69");
+				} else {
+					// do nothing	
+				}
+			}
 		}
 
         //Simulate doing something else while the serial device replies.
