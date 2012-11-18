@@ -47,17 +47,16 @@ foreach($reverseResults as $result){
         
         $message =  str_pad($formattedTime, CHAR_WIDTH, '*', STR_PAD_BOTH)."\n"
 		    .'From: @'.$result->from_user."\n"
-                    .'Message: '
                     .trim($result->text)."\n"
                     .str_pad("", CHAR_WIDTH, '*');
         
-        $message = wordwrap($message, CHAR_WIDTH);
+        $message = wordwrap($message, CHAR_WIDTH, "\n", true);
         
         if (NARROW && NARROW_RIGHT_ALIGN) {
             $lines = explode("\n", $message);
             $message = '';
             foreach($lines as $line){
-                $message = $message . str_pad(($line), CHAR_WIDTH_80, ' ', STR_PAD_LEFT)."\n";
+                $message = $message . str_pad("", (CHAR_WIDTH_80-CHAR_WIDTH_58), ' ') . str_pad(($line), CHAR_WIDTH_58, ' ')."\n";
             }
         }
         //Tidy up characters and encoding for printer
